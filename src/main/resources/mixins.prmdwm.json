@@ -1,0 +1,45 @@
+{
+  "required": true,
+  "package": "top.prefersmin.prmdwm.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "refmap": "mixins.waystoneandlightman.refmap.json",
+  "plugin": "top.prefersmin.prmdwm.mixin.MixinPlugin",
+  "mixins": [
+    "WitherSkullMixin",
+    "AmaterasuShuriken.AmaterasuShurikenFireProcedureMixin",
+    "AmaterasuShuriken.AmaterasuShurikenItemMixin",
+    "ApophisKatana.ApophisKatanaItemMixin",
+    "ApophisKatana.ApophisKatanaQuandUneEntiteVivanteEstFrappeeAvecLoutilProcedureMixin",
+    "ApophisKatana.ApophisKatanaRightclickedProcedureMixin",
+    "CernunnosSickle.CernunnosSickleItemMixin",
+    "CernunnosSickle.EarthSickleLorsqueVousCliquezAvecLeBoutonDroitDeLaSourisSurUnBlocProcedureMixin",
+    "ChaosSword.ChaosSwordItemMixin",
+    "ErebusScythe.ErebusScytheEvenementAuClicDroitDansLairProcedureMixin",
+    "ErebusScythe.ErebusScytheItemMixin",
+    "Fujindagger.FujindaggerItemMixin",
+    "Fujindagger.FujindaggerQuandUneEntiteVivanteEstFrappeeAvecLoutilProcedureMixin",
+    "JotunnBattleaxe.JotunnBattleaxeItemMixin",
+    "LugLongsword.LugLongswordBeamProcedureMixin",
+    "LugLongsword.LugLongswordItemMixin",
+    "Mjollnir.MjollnirItemMixin",
+    "Mjollnir.StormHammerProcedureMixin",
+    "OmSpear.OmSpearItemMixin",
+    "OmSpear.OmSpearRightclickedProcedureMixin",
+    "SobekRapier.SobekRapierItemMixin",
+    "SobekRapier.SobekRapierRightclickedProcedureMixin",
+    "TunupaGlaive.MeteorExplodeProcedureMixin",
+    "TunupaGlaive.TunupaGlaiveItemMixin",
+    "TunupaGlaive.TunupaShootingProcedureMixin",
+    "ZeusCutlass.ZeusCutlassItemMixin",
+    "ZeusCutlass.ZeusCutlassLivingEntityIsHitWithToolProcedureMixin",
+    "ZeusCutlass.ZeusCutlassRightclickedProcedureMixin"
+  ],
+  "client": [
+    "AmaterasuShuriken.AmaterasuShurikenEntityMixin",
+    "client.GameRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
