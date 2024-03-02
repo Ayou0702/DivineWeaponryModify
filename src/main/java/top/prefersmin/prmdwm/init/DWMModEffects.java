@@ -8,7 +8,7 @@ import net.minecraftforge.registries.RegistryObject;
 import top.prefersmin.prmdwm.DivineWeaponryModify;
 import top.prefersmin.prmdwm.effect.IncurableEffect;
 
-public class ModEffects
+public class DWMModEffects
 {
     public static final DeferredRegister<MobEffect> REGISTER = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, DivineWeaponryModify.MODID);
 
@@ -16,7 +16,7 @@ public class ModEffects
 
     public static final RegistryObject<IncurableEffect> PURE_DARKNESS = REGISTER.register("dark", () -> new IncurableEffect(MobEffectCategory.HARMFUL, 0));
 
-    public static final RegistryObject<IncurableEffect> CURE = REGISTER.register("cure", () -> new IncurableEffect(MobEffectCategory.HARMFUL, 0));
+    public static final RegistryObject<IncurableEffect> CURE = REGISTER.register("cure", () -> new IncurableEffect(MobEffectCategory.BENEFICIAL, 0));
 
     public static final RegistryObject<IncurableEffect> CHAOS = REGISTER.register("chaos", () -> new IncurableEffect(MobEffectCategory.HARMFUL, 0));
 

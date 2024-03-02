@@ -39,8 +39,7 @@ public class ErebusScytheEvenementAuClicDroitDansLairProcedureMixin {
             if (entity.isShiftKeyDown()) {
                 if (entity instanceof Player) {
                     _player = (Player)entity;
-                    // 1200
-                    _player.getCooldowns().addCooldown(itemstack.getItem(), 1);
+                    _player.getCooldowns().addCooldown(itemstack.getItem(), 1200);
                 }
 
                 ((LivingEntity)entity).getAttribute(DivineWeaponryModAttributes.EREBUSFLIGHT.get()).setBaseValue(1.0);
@@ -96,8 +95,7 @@ public class ErebusScytheEvenementAuClicDroitDansLairProcedureMixin {
             } else {
                 if (entity instanceof Player) {
                     _player = (Player)entity;
-                    // 60
-                    _player.getCooldowns().addCooldown(itemstack.getItem(), 1);
+                    _player.getCooldowns().addCooldown(itemstack.getItem(), 60);
                 }
 
                 Level projectileLevel = entity.level();

@@ -25,6 +25,7 @@
     "Mjollnir.MjollnirItemMixin",
     "Mjollnir.StormHammerProcedureMixin",
     "OmSpear.OmSpearItemMixin",
+    "OmSpear.OmSpearQuandUneEntiteVivanteEstFrappeeAvecLoutilProcedureMixin",
     "OmSpear.OmSpearRightclickedProcedureMixin",
     "SobekRapier.SobekRapierItemMixin",
     "SobekRapier.SobekRapierRightclickedProcedureMixin",

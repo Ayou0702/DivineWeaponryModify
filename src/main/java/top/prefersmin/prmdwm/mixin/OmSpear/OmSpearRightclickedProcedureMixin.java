@@ -47,8 +47,7 @@ public class OmSpearRightclickedProcedureMixin {
             if (entity.isShiftKeyDown()) {
                 if (entity instanceof Player) {
                     _player = (Player)entity;
-                    // 500
-                    _player.getCooldowns().addCooldown(itemstack.getItem(), 1);
+                    _player.getCooldowns().addCooldown(itemstack.getItem(), 500);
                 }
 
                 if (world instanceof Level) {
@@ -62,7 +61,7 @@ public class OmSpearRightclickedProcedureMixin {
 
                 if (entity instanceof LivingEntity _entity) {
                     if (!_entity.level().isClientSide()) {
-                        _entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 420, 1, false, false));
+                        _entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 420, 1, false, false));
                     }
                 }
 
@@ -88,8 +87,7 @@ public class OmSpearRightclickedProcedureMixin {
             } else {
                 if (entity instanceof Player) {
                     _player = (Player)entity;
-                    // 1000
-                    _player.getCooldowns().addCooldown(itemstack.getItem(), 1);
+                    _player.getCooldowns().addCooldown(itemstack.getItem(), 1000);
                 }
 
                 if (world instanceof Level) {
@@ -203,7 +201,7 @@ public class OmSpearRightclickedProcedureMixin {
 
                             if (entityiterator instanceof LivingEntity _entity) {
                                 if (!_entity.level().isClientSide()) {
-                                    _entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 100, 0, false, false));
+                                    _entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 100, 0, false, false));
                                 }
                             }
                         }

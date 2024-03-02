@@ -1,7 +1,6 @@
 package top.prefersmin.prmdwm.mixin.CernunnosSickle;
 
 import divineweaponry.DivineWeaponryMod;
-import divineweaponry.init.DivineWeaponryModMobEffects;
 import divineweaponry.procedures.EarthSickleLorsqueVousCliquezAvecLeBoutonDroitDeLaSourisSurUnBlocProcedure;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -25,7 +24,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import top.prefersmin.prmdwm.events.PlayerTickEvent;
-import top.prefersmin.prmdwm.init.ModEffects;
+import top.prefersmin.prmdwm.init.DWMModEffects;
 
 import java.util.Comparator;
 import java.util.Iterator;
@@ -44,8 +43,7 @@ public class EarthSickleLorsqueVousCliquezAvecLeBoutonDroitDeLaSourisSurUnBlocPr
             if (entity.isShiftKeyDown()) {
                 if (entity instanceof Player) {
                     _player = (Player) entity;
-                    // 500
-                    _player.getCooldowns().addCooldown(itemstack.getItem(), 1);
+                    _player.getCooldowns().addCooldown(itemstack.getItem(), 2400);
                 }
 
                 if (world instanceof Level) {
@@ -63,12 +61,7 @@ public class EarthSickleLorsqueVousCliquezAvecLeBoutonDroitDeLaSourisSurUnBlocPr
                         PlayerTickEvent playerTickEvent = new PlayerTickEvent();
                         MinecraftForge.EVENT_BUS.register(playerTickEvent);
                         _entity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 1200, 0, false, false));
-                        _entity.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600, 0, false, false));
-                        _entity.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 600, 0, false, false));
-                        _entity.addEffect(new MobEffectInstance(new MobEffectInstance(DivineWeaponryModMobEffects.WITHER_RESISTANCE.get(), 600, 0, false, false)));
-                        _entity.addEffect(new MobEffectInstance(new MobEffectInstance(DivineWeaponryModMobEffects.POISON_RESISTANCE.get(), 600, 0, false, false)));
-                        _entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 600, 0, false, false));
-                        _entity.addEffect(new MobEffectInstance(ModEffects.CURE.get(), 600, 0, false, false));
+                        _entity.addEffect(new MobEffectInstance(DWMModEffects.CURE.get(), 600, 0, false, false));
                         DivineWeaponryMod.queueServerWork(600, () -> {
                             MinecraftForge.EVENT_BUS.unregister(playerTickEvent);
                         });
@@ -85,7 +78,7 @@ public class EarthSickleLorsqueVousCliquezAvecLeBoutonDroitDeLaSourisSurUnBlocPr
                 double raytrace_distance = 0.0;
                 if (entity instanceof Player) {
                     _player = (Player) entity;
-                    _player.getCooldowns().addCooldown(itemstack.getItem(), 1);
+                    _player.getCooldowns().addCooldown(itemstack.getItem(), 500);
                 }
 
                 if (world instanceof Level) {

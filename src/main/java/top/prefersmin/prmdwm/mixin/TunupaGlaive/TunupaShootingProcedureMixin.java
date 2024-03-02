@@ -39,13 +39,12 @@ public class TunupaShootingProcedureMixin {
             if (entity.isShiftKeyDown()) {
                 if (entity instanceof Player) {
                     _player = (Player) entity;
-                    // 400
-                    _player.getCooldowns().addCooldown(itemstack.getItem(), 1);
+                    _player.getCooldowns().addCooldown(itemstack.getItem(), 400);
                 }
 
-                for (index1 = 0; index1 < 100; ++index1) {
+                for (index1 = 0; index1 < 50; ++index1) {
                     if (world instanceof ServerLevel _serverLevel) {
-                        FallingBlockEntity.fall(_serverLevel, BlockPos.containing(x + Mth.nextDouble(RandomSource.create(), -4.0, 4.0), y + Mth.nextDouble(RandomSource.create(), 20.0, 10.0), z + Mth.nextDouble(RandomSource.create(), -2.0, 2.0)), DivineWeaponryModBlocks.METEOR.get().defaultBlockState());
+                        FallingBlockEntity.fall(_serverLevel, BlockPos.containing(x + Mth.nextDouble(RandomSource.create(), -4.0, 4.0), y + Mth.nextDouble(RandomSource.create(), 24.0, 27.0), z + Mth.nextDouble(RandomSource.create(), -4.0, 4.0)), DivineWeaponryModBlocks.METEOR.get().defaultBlockState());
                     }
                 }
 
@@ -57,7 +56,7 @@ public class TunupaShootingProcedureMixin {
                         serverLevel.playLocalSound(x, y, z, Objects.requireNonNull(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.basalt.fall"))), SoundSource.PLAYERS, 3.0F, 0.5F, false);
                     }
                     if (!serverLevel.isClientSide()) {
-                        serverLevel.explode(null, x, y + 36.0, z, 4.0F, Level.ExplosionInteraction.BLOCK);
+                        serverLevel.explode(null, x, y + 24.0, z, 4.0F, Level.ExplosionInteraction.BLOCK);
                     }
 
                 }
@@ -75,7 +74,7 @@ public class TunupaShootingProcedureMixin {
                 if (entity instanceof Player) {
                     _player = (Player) entity;
                     // 100
-                    _player.getCooldowns().addCooldown(itemstack.getItem(), 1);
+                    _player.getCooldowns().addCooldown(itemstack.getItem(), 60);
                 }
 
                 raytrace_distance = 1.0;
@@ -96,13 +95,13 @@ public class TunupaShootingProcedureMixin {
                 }
 
                 if (world instanceof ServerLevel) {
-                    FallingBlockEntity.fall(serverLevel, BlockPos.containing(X, Y + 24.0, Z), DivineWeaponryModBlocks.METEOR.get().defaultBlockState());
-                    FallingBlockEntity.fall(serverLevel, BlockPos.containing(X, Y + 25.0, Z), DivineWeaponryModBlocks.METEOR.get().defaultBlockState());
-                    FallingBlockEntity.fall(serverLevel, BlockPos.containing(X, Y + 26.0, Z), DivineWeaponryModBlocks.METEOR.get().defaultBlockState());
-                    FallingBlockEntity.fall(serverLevel, BlockPos.containing(X + 1.0, Y + 25.0, Z), DivineWeaponryModBlocks.METEOR.get().defaultBlockState());
-                    FallingBlockEntity.fall(serverLevel, BlockPos.containing(X - 1.0, Y + 25.0, Z), DivineWeaponryModBlocks.METEOR.get().defaultBlockState());
-                    FallingBlockEntity.fall(serverLevel, BlockPos.containing(X, Y + 25.0, Z + 1.0), DivineWeaponryModBlocks.METEOR.get().defaultBlockState());
-                    FallingBlockEntity.fall(serverLevel, BlockPos.containing(X, Y + 25.0, Z - 1.0), DivineWeaponryModBlocks.METEOR.get().defaultBlockState());
+                    FallingBlockEntity.fall(serverLevel, BlockPos.containing(X, Y + 14.0, Z), DivineWeaponryModBlocks.METEOR.get().defaultBlockState());
+                    FallingBlockEntity.fall(serverLevel, BlockPos.containing(X, Y + 15.0, Z), DivineWeaponryModBlocks.METEOR.get().defaultBlockState());
+                    FallingBlockEntity.fall(serverLevel, BlockPos.containing(X, Y + 16.0, Z), DivineWeaponryModBlocks.METEOR.get().defaultBlockState());
+                    FallingBlockEntity.fall(serverLevel, BlockPos.containing(X + 1.0, Y + 15.0, Z), DivineWeaponryModBlocks.METEOR.get().defaultBlockState());
+                    FallingBlockEntity.fall(serverLevel, BlockPos.containing(X - 1.0, Y + 15.0, Z), DivineWeaponryModBlocks.METEOR.get().defaultBlockState());
+                    FallingBlockEntity.fall(serverLevel, BlockPos.containing(X, Y + 15.0, Z + 1.0), DivineWeaponryModBlocks.METEOR.get().defaultBlockState());
+                    FallingBlockEntity.fall(serverLevel, BlockPos.containing(X, Y + 15.0, Z - 1.0), DivineWeaponryModBlocks.METEOR.get().defaultBlockState());
                 }
 
             }

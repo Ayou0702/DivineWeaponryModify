@@ -22,6 +22,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import top.prefersmin.prmdwm.init.DWMModEffects;
 
 import java.util.Comparator;
 import java.util.Iterator;
@@ -46,7 +47,7 @@ public class ApophisKatanaRightclickedProcedureMixin {
             if (entity.isShiftKeyDown()) {
                 if (entity instanceof Player) {
                     _player = (Player) entity;
-                    _player.getCooldowns().addCooldown(itemstack.getItem(), 1);
+                    _player.getCooldowns().addCooldown(itemstack.getItem(), 500);
                 }
 
                 if (world instanceof Level) {
@@ -84,7 +85,7 @@ public class ApophisKatanaRightclickedProcedureMixin {
                                     if (_entity instanceof Player) {
                                         if (entity instanceof Player) {
                                             _player = (Player) entity;
-                                            _player.getCooldowns().addCooldown(itemstack.getItem(), 1);
+                                            _player.getCooldowns().addCooldown(itemstack.getItem(), 800);
                                         }
                                     }
                                     _entity.teleportTo(x,y,z);
@@ -110,8 +111,7 @@ public class ApophisKatanaRightclickedProcedureMixin {
             } else {
                 if (entity instanceof Player) {
                     _player = (Player) entity;
-                    // 400
-                    _player.getCooldowns().addCooldown(itemstack.getItem(), 1);
+                    _player.getCooldowns().addCooldown(itemstack.getItem(), 400);
                 }
 
                 if (world instanceof Level) {
@@ -131,7 +131,7 @@ public class ApophisKatanaRightclickedProcedureMixin {
 
                     if (world instanceof ServerLevel) {
                         serverLevel1 = (ServerLevel) world;
-                        serverLevel1.sendParticles(ParticleTypes.GLOW, entity.getX() + Math.cos(Math.toRadians(entity.getYRot() + 90.0F)) * raytrace_distance, entity.getY() + (double) entity.getEyeHeight() + Math.sin(Math.toRadians(0.0F - entity.getXRot())) * raytrace_distance, entity.getZ() + Math.sin(Math.toRadians(entity.getYRot() + 90.0F)) * raytrace_distance, 1, 0.0, 0.0, 0.0, 0.0);
+                        serverLevel1.sendParticles(ParticleTypes.ELECTRIC_SPARK, entity.getX() + Math.cos(Math.toRadians(entity.getYRot() + 90.0F)) * raytrace_distance, entity.getY() + (double) entity.getEyeHeight() + Math.sin(Math.toRadians(0.0F - entity.getXRot())) * raytrace_distance, entity.getZ() + Math.sin(Math.toRadians(entity.getYRot() + 90.0F)) * raytrace_distance, 1, 0.0, 0.0, 0.0, 0.0);
 
                     }
 
@@ -148,6 +148,7 @@ public class ApophisKatanaRightclickedProcedureMixin {
                                 _entity = (LivingEntity) entityiterator;
                                 if (!_entity.level().isClientSide()) {
                                     _entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 255, false, false));
+                                    _entity.addEffect(new MobEffectInstance(DWMModEffects.PURE_DARKNESS.get(), 200, 0, false, false));
                                 }
                             }
 
@@ -164,7 +165,7 @@ public class ApophisKatanaRightclickedProcedureMixin {
 
                 if (world instanceof ServerLevel) {
                     serverLevel1 = (ServerLevel) world;
-                    serverLevel1.sendParticles(ParticleTypes.GLOW, entity.getX() + Math.cos(Math.toRadians(entity.getYRot() + 90.0F)) * raytrace_distance, entity.getY() + (double) entity.getEyeHeight() + Math.sin(Math.toRadians(0.0F - entity.getXRot())) * raytrace_distance, entity.getZ() + Math.sin(Math.toRadians(entity.getYRot() + 90.0F)) * raytrace_distance, 5, 0.0, 0.0, 0.0, 0.1);
+                    serverLevel1.sendParticles(ParticleTypes.ELECTRIC_SPARK, entity.getX() + Math.cos(Math.toRadians(entity.getYRot() + 90.0F)) * raytrace_distance, entity.getY() + (double) entity.getEyeHeight() + Math.sin(Math.toRadians(0.0F - entity.getXRot())) * raytrace_distance, entity.getZ() + Math.sin(Math.toRadians(entity.getYRot() + 90.0F)) * raytrace_distance, 5, 0.0, 0.0, 0.0, 0.1);
                 }
 
             }

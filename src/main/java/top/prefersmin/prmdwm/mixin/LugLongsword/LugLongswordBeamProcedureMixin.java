@@ -28,7 +28,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import top.prefersmin.prmdwm.init.ModEffects;
+import top.prefersmin.prmdwm.init.DWMModEffects;
 
 import java.util.Comparator;
 import java.util.Iterator;
@@ -53,8 +53,7 @@ public class LugLongswordBeamProcedureMixin {
             if (entity.isShiftKeyDown()) {
                 if (entity instanceof Player) {
                     _player = (Player)entity;
-                    // 1200
-                    _player.getCooldowns().addCooldown(itemstack.getItem(), 1);
+                    _player.getCooldowns().addCooldown(itemstack.getItem(), 1200);
                 }
 
                 if (world instanceof Level) {
@@ -190,8 +189,8 @@ public class LugLongswordBeamProcedureMixin {
                             if (entityiterator instanceof LivingEntity) {
                                 _entity = (LivingEntity)entityiterator;
                                 if (!_entity.level().isClientSide()) {
-                                    _entity.addEffect(new MobEffectInstance(ModEffects.BLINDED.get(), 80, 0, false, false));
-                                    _entity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 80, 0, false, false));
+                                    _entity.addEffect(new MobEffectInstance(DWMModEffects.BLINDED.get(), 120, 0, false, false));
+                                    _entity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 120, 0, false, false));
                                 }
                             }
 

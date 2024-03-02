@@ -45,8 +45,7 @@ public class ZeusCutlassRightclickedProcedureMixin {
             if (entity.isShiftKeyDown()) {
                 if (entity instanceof Player) {
                     _player = (Player) entity;
-                    // 900
-                    _player.getCooldowns().addCooldown(itemstack.getItem(), 1);
+                    _player.getCooldowns().addCooldown(itemstack.getItem(), 600);
                 }
 
                 if (world instanceof Level) {

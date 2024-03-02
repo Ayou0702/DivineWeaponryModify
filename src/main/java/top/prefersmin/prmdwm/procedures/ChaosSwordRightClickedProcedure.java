@@ -15,9 +15,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
-import top.prefersmin.prmdwm.init.ModEffects;
-import top.prefersmin.prmdwm.network.PacketHandler;
-import top.prefersmin.prmdwm.network.packet.ChaosSwordProcedurePacket;
+import top.prefersmin.prmdwm.init.DWMModEffects;
 
 import java.util.Comparator;
 import java.util.Iterator;
@@ -27,7 +25,6 @@ import java.util.Random;
 
 import static top.prefersmin.prmdwm.util.EffectUtil.getRandomEffect;
 import static top.prefersmin.prmdwm.util.EntityUtil.getRandomHurtEntity;
-import static top.prefersmin.prmdwm.util.KeyInputUtil.isLeftCtrlPressed;
 
 public class ChaosSwordRightClickedProcedure {
 
@@ -38,32 +35,10 @@ public class ChaosSwordRightClickedProcedure {
             double y = entity.getY();
             double z = entity.getZ();
 
-            if (isLeftCtrlPressed()) {
-                Level _level;
-                System.out.println("Left Ctrl");
-
-                if (world instanceof Level) {
-                    _level = (Level) world;
-                    if (entity instanceof Player) {
-                        player = (Player) entity;
-                        // 60
-                        player.getCooldowns().addCooldown(itemstack.getItem(), 1);
-
-                        System.out.println("发包！");
-                        PacketHandler.getPlayChannel().sendToServer(new ChaosSwordProcedurePacket(player.getUUID()));
-                    }
-                    if (!_level.isClientSide()) {
-                        _level.playSound(null, BlockPos.containing(x, y, z), Objects.requireNonNull(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.warden.agitated"))), SoundSource.NEUTRAL, 1.0F, 1.0F);
-                    } else {
-                        _level.playLocalSound(x, y, z, Objects.requireNonNull(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.warden.agitated"))), SoundSource.NEUTRAL, 1.0F, 1.0F, false);
-                    }
-                }
-
-            } else if (entity.isShiftKeyDown()) {
+            if (entity.isShiftKeyDown()) {
                 if (entity instanceof Player) {
                     player = (Player) entity;
-                    // 60
-                    player.getCooldowns().addCooldown(itemstack.getItem(), 1);
+                    player.getCooldowns().addCooldown(itemstack.getItem(), 10);
 
                     Level projectileLevel = entity.level();
                     if (!projectileLevel.isClientSide()) {
@@ -73,9 +48,9 @@ public class ChaosSwordRightClickedProcedure {
 
                 if (world instanceof Level _level) {
                     if (!_level.isClientSide()) {
-                        _level.playSound(null, BlockPos.containing(x, y, z), Objects.requireNonNull(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.wither.shoot"))), SoundSource.PLAYERS, 0.8F, 1.0F);
+                        _level.playSound(null, BlockPos.containing(x, y, z), Objects.requireNonNull(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.firework_rocket.blast"))), SoundSource.PLAYERS, 0.8F, 1.0F);
                     } else {
-                        _level.playLocalSound(x, y, z, Objects.requireNonNull(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.wither.shoot"))), SoundSource.PLAYERS, 0.8F, 1.0F, false);
+                        _level.playLocalSound(x, y, z, Objects.requireNonNull(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.firework_rocket.blast"))), SoundSource.PLAYERS, 0.8F, 1.0F, false);
                     }
                 }
             } else {
@@ -89,8 +64,7 @@ public class ChaosSwordRightClickedProcedure {
                 double raytrace_distance = 0.0;
                 if (entity instanceof Player) {
                     player = (Player) entity;
-                    // 400
-                    player.getCooldowns().addCooldown(itemstack.getItem(), 1);
+                    player.getCooldowns().addCooldown(itemstack.getItem(), 160);
                 }
 
                 if (world instanceof Level) {
@@ -122,8 +96,8 @@ public class ChaosSwordRightClickedProcedure {
                             if (entityiterator instanceof LivingEntity) {
                                 _entity = (LivingEntity) entityiterator;
                                 if (!_entity.level().isClientSide()) {
-                                    if (_entity.getEffect(ModEffects.CHAOS.get()) == null) {
-                                        _entity.addEffect(new MobEffectInstance(ModEffects.CHAOS.get(), 100, 0, false, false));
+                                    if (_entity.getEffect(DWMModEffects.CHAOS.get()) == null) {
+                                        _entity.addEffect(new MobEffectInstance(DWMModEffects.CHAOS.get(), 100, 0, false, false));
                                         _entity.addEffect(new MobEffectInstance(getRandomEffect(), 100, new Random().nextInt(256), false, false));
                                         _entity.addEffect(new MobEffectInstance(getRandomEffect(), 100, new Random().nextInt(256), false, false));
                                         _entity.addEffect(new MobEffectInstance(getRandomEffect(), 100, new Random().nextInt(256), false, false));

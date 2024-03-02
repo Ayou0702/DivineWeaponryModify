@@ -27,6 +27,7 @@ public class AmaterasuShurikenEntityMixin {
         entityarrow.setBaseDamage(damage);
         entityarrow.setKnockback(knockback);
         entityarrow.setNoGravity(true);
+        entityarrow.setNoPhysics(true);
         entityarrow.setSecondsOnFire(100);
         world.addFreshEntity(entityarrow);
         world.playSound(null, entity.getX(), entity.getY(), entity.getZ(), Objects.requireNonNull(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.firecharge.use"))), SoundSource.PLAYERS, 1.0F, 1.0F / (random.nextFloat() * 0.5F + 1.0F) + power / 2.0F);
@@ -46,6 +47,7 @@ public class AmaterasuShurikenEntityMixin {
         entityarrow.setBaseDamage(6.5);
         entityarrow.setKnockback(1);
         entityarrow.setNoGravity(true);
+        entityarrow.setNoPhysics(true);
         entityarrow.setSecondsOnFire(100);
         entity.level().addFreshEntity(entityarrow);
         entity.level().playSound(null, entity.getZ(), entity.getY(), entity.getZ(), Objects.requireNonNull(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.firecharge.use"))), SoundSource.PLAYERS, 1.0F, 1.0F / (RandomSource.create().nextFloat() * 0.5F + 1.0F));

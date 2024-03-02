@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import top.prefersmin.prmdwm.init.ModEffects;
+import top.prefersmin.prmdwm.init.DWMModEffects;
 
 import java.util.Random;
 
@@ -24,8 +24,8 @@ public class GameRendererMixin {
             return;
         }
 
-        MobEffectInstance blindedEffect = player.getEffect(ModEffects.BLINDED.get());
-        MobEffectInstance darkEffect = player.getEffect(ModEffects.PURE_DARKNESS.get());
+        MobEffectInstance blindedEffect = player.getEffect(DWMModEffects.BLINDED.get());
+        MobEffectInstance darkEffect = player.getEffect(DWMModEffects.PURE_DARKNESS.get());
         if (blindedEffect != null || darkEffect != null) {
             Window window = minecraft.getWindow();
             GuiGraphics graphics = new GuiGraphics(minecraft, minecraft.renderBuffers().bufferSource());

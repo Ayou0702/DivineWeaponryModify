@@ -33,7 +33,7 @@ public class AmaterasuShurikenFireProcedureMixin {
             if (entity.isShiftKeyDown()) {
                 if (entity instanceof Player) {
                     _player = (Player) entity;
-                    _player.getCooldowns().addCooldown(itemstack.getItem(), 15);
+                    _player.getCooldowns().addCooldown(itemstack.getItem(), 20);
                 }
 
                 DivineWeaponryMod.queueServerWork(3, () -> {
@@ -44,6 +44,7 @@ public class AmaterasuShurikenFireProcedureMixin {
                                 AbstractArrow entityToSpawn = new AmaterasuShurikenEntity(DivineWeaponryModEntities.AMATERASU_SHURIKEN.get(), level);
                                 entityToSpawn.setBaseDamage(damage);
                                 entityToSpawn.setKnockback(knockback);
+                                entityToSpawn.setNoPhysics(true);
                                 entityToSpawn.setSilent(true);
                                 entityToSpawn.pickup = AbstractArrow.Pickup.ALLOWED;
                                 return entityToSpawn;
@@ -70,6 +71,7 @@ public class AmaterasuShurikenFireProcedureMixin {
                                     AbstractArrow entityToSpawn = new AmaterasuShurikenEntity(DivineWeaponryModEntities.AMATERASU_SHURIKEN.get(), level);
                                     entityToSpawn.setBaseDamage(damage);
                                     entityToSpawn.setKnockback(knockback);
+                                    entityToSpawn.setNoPhysics(true);
                                     entityToSpawn.setSilent(true);
                                     entityToSpawn.pickup = AbstractArrow.Pickup.ALLOWED;
                                     return entityToSpawn;
@@ -93,7 +95,7 @@ public class AmaterasuShurikenFireProcedureMixin {
                 });
             } else if (entity instanceof Player) {
                 _player = (Player) entity;
-                _player.getCooldowns().addCooldown(itemstack.getItem(), 5);
+                _player.getCooldowns().addCooldown(itemstack.getItem(), 10);
             }
 
         }

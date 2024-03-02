@@ -3,7 +3,7 @@ package top.prefersmin.prmdwm.util;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraftforge.registries.ForgeRegistries;
-import top.prefersmin.prmdwm.init.ModEffects;
+import top.prefersmin.prmdwm.init.DWMModEffects;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class EffectUtil {
             Random random = new Random();
             int index = random.nextInt(effectList.size());
             effect = effectList.get(index);
-        } while (effect == ModEffects.CHAOS.get());
+        } while (effect == DWMModEffects.CHAOS.get());
 
         System.out.println(effect.getDescriptionId());
 

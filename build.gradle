@@ -73,7 +73,6 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    compileOnly("curse.maven:framework-549225:4718251")
     compileOnly('curse.maven:divine-weaponry-852492:4810989')
 }
 
